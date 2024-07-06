@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="999.0" prefWidth="1920.0" style="-fx-background-color: #0A0A0A;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.shehaniRestaurant.controller.DashboardFormController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="11.0" prefHeight="979.0" prefWidth="300.0" style="-fx-background-radius: 10;" stylesheets="@assests/styles/DashBoard.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="1612.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <JFXButton fx:id="btnDashboard" layoutX="17.0" layoutY="319.0" onAction="#dashboardOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" stylesheets="@assests/styles/DashBoard.css" text="Dashboard" />
+            <JFXButton fx:id="btnFoodItem" layoutX="17.0" layoutY="379.0" onAction="#foodItemOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" text="FoodItem" />
+            <JFXButton fx:id="btnUser" layoutX="17.0" layoutY="439.0" onAction="#userOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" text="User" />
+            <JFXButton fx:id="btnEmployee" layoutX="17.0" layoutY="499.0" onAction="#employeeOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" text="Employee" />
+            <JFXButton fx:id="btnCustomer" layoutX="17.0" layoutY="559.0" onAction="#customerOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" text="Customer" />
+            <JFXButton fx:id="btnOrder" layoutX="17.0" layoutY="619.0" onAction="#orderOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" text="Order" />
+            <JFXButton fx:id="btnVehicle" layoutX="17.0" layoutY="679.0" onAction="#vehicleOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" text="Vehicle" />
+            <JFXButton fx:id="btnIngredient" layoutX="17.0" layoutY="739.0" onAction="#ingredientOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" text="Ingredient" />
+            <JFXButton fx:id="btnSupplier" layoutX="17.0" layoutY="799.0" onAction="#supplierOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" text="Supplier" />
+            <JFXButton fx:id="btnLogout" layoutX="17.0" layoutY="859.0" onAction="#logoutOnAction" prefHeight="50.0" prefWidth="264.0" styleClass="nvi-btn" text="Logout" />
+            <ImageView fx:id="UserImage" fitHeight="200.0" fitWidth="200.0" layoutX="49.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/restaurandLogo/shehanirestaurant.jpeg" />
+               </image></ImageView>
+            <Label layoutX="63.0" layoutY="25.0" text="Welcome" textFill="WHITE">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="39.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="319.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="379.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/foodItem.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="439.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/User.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="499.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/Employee.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="559.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/Customer.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="619.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/Order.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="679.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/Vehicle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="739.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/Ingredient.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="799.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/Supplier.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="38.0" layoutY="859.0">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/LogOut.png" />
+               </image>
+            </ImageView>
+         </children>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="navigationPnl" />
+         </styleClass>
+      </AnchorPane>
+      <AnchorPane fx:id="centerNode" layoutX="319.0" layoutY="10.0" prefHeight="998.0" prefWidth="1590.0" style="-fx-background-radius: 10;">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="pane" />
+            <String fx:value="CenterPanel" />
+         </styleClass>
+         <stylesheets>
+            <URL value="@assests/styles/login_form.css" />
+            <URL value="@assests/styles/CenterDashBord.css" />
+         </stylesheets>
+      </AnchorPane>
+   </children>
+</AnchorPane>

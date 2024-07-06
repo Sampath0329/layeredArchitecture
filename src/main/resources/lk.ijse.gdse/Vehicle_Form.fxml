@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="998.0" prefWidth="1590.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.shehaniRestaurant.controller.VehicleFormController">
+   <children>
+      <Label layoutX="595.0" layoutY="44.0" text=" Vehicle Manage" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="51.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblVehicle" layoutX="65.0" layoutY="554.0" prefHeight="423.0" prefWidth="1461.0" stylesheets="@assests/styles/login_form.css">
+         <columns>
+            <TableColumn fx:id="colPlateNumber" prefWidth="324.0" text="PlateNumber" />
+            <TableColumn fx:id="colType" prefWidth="501.0" text="Type" />
+            <TableColumn fx:id="colLicenseDate" prefWidth="255.0" text="License Date" />
+            <TableColumn fx:id="colColour" prefWidth="213.0" text="Colour" />
+            <TableColumn fx:id="colAvailability" prefWidth="167.0" text="Availability" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtPlateNumber" layoutX="283.0" layoutY="243.0" onAction="#platenumberOnAction" prefHeight="48.0" prefWidth="433.0" />
+      <TextField fx:id="txtType" layoutX="283.0" layoutY="348.0" onAction="#typeOnAction" prefHeight="48.0" prefWidth="433.0" />
+      <JFXButton fx:id="btnClear" layoutX="901.0" layoutY="469.0" onAction="#ClearOnAction" prefHeight="38.0" prefWidth="104.0" styleClass="btn-Clear" text="Clear" />
+      <JFXButton fx:id="btnDelete" layoutX="1044.0" layoutY="469.0" onAction="#DeleteOnAction" prefHeight="38.0" prefWidth="134.0" styleClass="btn-Delete" text="Delete" />
+      <JFXButton fx:id="btnUpdate" layoutX="1220.0" layoutY="469.0" onAction="#UpdateOnAction" prefHeight="38.0" prefWidth="141.0" styleClass="btn-Update" text="Update" />
+      <JFXButton fx:id="btnSave" layoutX="1393.0" layoutY="469.0" onAction="#SaveOnAction" prefHeight="38.0" prefWidth="104.0" styleClass="btn-Save" text="Save" />
+      <Label layoutX="283.0" layoutY="318.0" text="Vehicle Type*">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="283.0" layoutY="215.0" text="PlateNumber*">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="954.0" layoutY="256.0" text="License Date*">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="954.0" layoutY="361.0" text="Vehicle Colour:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cBoxColour" layoutX="1093.0" layoutY="357.0" onAction="#ColourSetOnAction" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: White;" />
+      <CheckBox fx:id="chBoxAvailability" layoutX="283.0" layoutY="450.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="198.0" text="Availability">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </CheckBox>
+      <Label fx:id="lblColour" layoutX="1261.0" layoutY="362.0" prefHeight="20.0" prefWidth="20.0" />
+      <DatePicker fx:id="datepicker" layoutX="1080.0" layoutY="248.0" onAction="#datepickerOnAction" prefHeight="38.0" prefWidth="264.0" />
+      <Group layoutX="1074.0" layoutY="50.0" styleClass="searchTextField">
+         <children>
+            <Label prefHeight="48.0" prefWidth="350.0" styleClass="searchTextField" />
+            <TextField fx:id="txtSearchId" onAction="#TxtSearchIdOnAction" prefHeight="48.0" prefWidth="304.0" styleClass="searchTextField" />
+            <ImageView fitHeight="48.0" fitWidth="45.0" layoutX="305.0" onMouseClicked="#searchOnMouseClick">
+               <image>
+                  <Image url="@../lk.ijse.gdse/assests/Search.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="901.0" layoutY="471.0">
+         <image>
+            <Image url="@../lk.ijse.gdse/assests/icons8-clear-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1044.0" layoutY="471.0">
+         <image>
+            <Image url="@../lk.ijse.gdse/assests/icons8-delete-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1393.0" layoutY="471.0">
+         <image>
+            <Image url="@../lk.ijse.gdse/assests/icons8-save-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1226.0" layoutY="471.0">
+         <image>
+            <Image url="@../lk.ijse.gdse/assests/icons8-update-96.png" />
+         </image>
+      </ImageView>
+   </children>
+   <styleClass>
+      <String fx:value="pane" />
+      <String fx:value="shadow" />
+      <String fx:value="CenterPanel" />
+   </styleClass>
+   <stylesheets>
+      <URL value="@assests/styles/login_form.css" />
+      <URL value="@assests/styles/CenterDashBord.css" />
+   </stylesheets>
+</AnchorPane>

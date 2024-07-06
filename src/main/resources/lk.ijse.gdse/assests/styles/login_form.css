@@ -1,0 +1,34 @@
+
+*{
+    -fx-font-family: Ubuntu Serif;
+}
+.pane{
+    -fx-background-color: #f5d8af;
+}
+.jfx-button {
+    -fx-font-size: 20px;
+    /*-fx-font-weight: bold;*/
+    /*-fx-background-color: #00b2ff;*/
+    -fx-text-fill: rgb(0, 22, 59);
+    -fx-cursor: hand;
+    -fx-background-radius: 10;
+
+}
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8,0,0,0);
+}
+.jfx-button:hover {
+    -fx-background-color: #1A2632;
+    -fx-text-fill: #ffffff;
+}
+.text-field{
+    -fx-font-size: 16;
+    -fx-text-fill: #000000;
+    -fx-font-weight: BOLD;
+}
+
+.searchTextField {
+    -fx-border-color: #ada9a9;
+    -fx-background-color: White;
+}
+

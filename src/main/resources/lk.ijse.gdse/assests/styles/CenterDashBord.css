@@ -1,0 +1,48 @@
+.CenterPanel{
+    -fx-background-color:linear-gradient(to top right, #ffa400, #ffa400);
+    -fx-text-fill: black;
+}
+.btn-Clear{
+    -fx-background-color:  #7f8c8d;
+    -fx-text-fill: #000000;
+}
+.btn-Clear:hover{
+    -fx-background-color: #373e41;
+    -fx-text-fill: #ffffff;
+}
+.btn-Update{
+    -fx-background-color:  #e67e22;
+    -fx-text-fill: #000000;
+}
+.btn-Update:hover{
+    -fx-background-color: #ff7700;
+    -fx-text-fill: #ffffff;
+}
+.btn-Delete{
+    -fx-background-color:  #e74c3c;
+    -fx-text-fill: #000000;
+}
+.btn-Delete:hover{
+    -fx-background-color: #ff1a00;
+    -fx-text-fill: #ffffff;
+}
+.btn-Save{
+    -fx-background-color:  #2980b9;
+    -fx-text-fill: #000000;
+}
+.btn-Save:hover{
+    -fx-background-color: #009eff;
+    -fx-text-fill: #ffffff;
+}
+.btn-food{
+    -fx-background-color:transparent;
+    -fx-text-fill: Black;
+}
+.btn-food:hover{
+    -fx-background-color:linear-gradient(to top right, #fff300, #00b2ff);
+    -fx-text-fill: White;
+}
+.btn-food:focused{
+    -fx-background-color:linear-gradient(to top right, #fff300, #00b2ff);
+    -fx-text-fill: White;
+}
