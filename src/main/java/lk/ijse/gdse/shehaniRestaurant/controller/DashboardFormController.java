@@ -61,10 +61,10 @@ public AnchorPane rootNode;
     }
 
     public void employeeOnAction(ActionEvent actionEvent) throws IOException {
-//        AnchorPane vehicleForm = FXMLLoader.load(this.getClass().getResource("/View/AddEmployeeButton_Form.fxml"));
-//
-//        centerNode.getChildren().clear();
-//        centerNode.getChildren().add(vehicleForm);
+        AnchorPane vehicleForm = FXMLLoader.load(this.getClass().getResource("/lk.ijse.gdse/AddEmployeeButton_Form.fxml"));
+
+        centerNode.getChildren().clear();
+        centerNode.getChildren().add(vehicleForm);
     }
 
     public void customerOnAction(ActionEvent actionEvent) throws IOException {
