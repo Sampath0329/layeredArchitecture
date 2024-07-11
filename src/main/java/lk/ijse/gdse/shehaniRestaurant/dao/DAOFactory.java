@@ -1,8 +1,7 @@
 package lk.ijse.gdse.shehaniRestaurant.dao;
 
 import lk.ijse.gdse.shehaniRestaurant.bo.custom.impl.CustomerBOImpl;
-import lk.ijse.gdse.shehaniRestaurant.dao.custom.impl.CustomerDAOImpl;
-import lk.ijse.gdse.shehaniRestaurant.dao.custom.impl.UserDAOImpl;
+import lk.ijse.gdse.shehaniRestaurant.dao.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -14,7 +13,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes{
-        USER,CUSTOMER
+        USER,CUSTOMER,VEHICLE,SUPPLIER,INGREDIENT,FOOD,BEER,INGREDIENTDETAIL
     }
     public SuperDAO getDAO(DAOTypes daoTypes){
         switch (daoTypes){
@@ -22,6 +21,18 @@ public class DAOFactory {
                 return new UserDAOImpl();
             case CUSTOMER:
                 return new CustomerDAOImpl();
+            case VEHICLE:
+                return new VehicleDAOImpl();
+            case SUPPLIER:
+                return new SupplierDAOImpl();
+            case INGREDIENT:
+                return new IngredientDAOImpl();
+            case FOOD:
+                return new FoodDAOImpl();
+            case BEER:
+                return new BeerDAOImpl();
+            case INGREDIENTDETAIL:
+                return  new IngredientDetailDAOImpl();
             default:
                 return null;
         }

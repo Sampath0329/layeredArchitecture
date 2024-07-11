@@ -40,15 +40,15 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public UserDTO SearchByUserId(String id) throws SQLException, ClassNotFoundException {
-        User user = userDAO.SearchById(id);
+        User user = userDAO.searchById(id);
         return new UserDTO(user.getId(), user.getName(), user.getPw(), user.getNic(), user.getActive());
     }
 
     @Override
     public List<UserDTO> getAllUsers() throws SQLException, ClassNotFoundException {
 
-        ArrayList<User> all= userDAO.getAll();
-        ArrayList<UserDTO> allUsers = new ArrayList<>();
+        List<User> all= userDAO.getAll();
+        List<UserDTO> allUsers = new ArrayList<>();
         for (User u : all){
             allUsers.add(
                     new UserDTO(

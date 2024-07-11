@@ -41,10 +41,10 @@ public AnchorPane rootNode;
         centerNode.getChildren().add(dashBoardCenter);
     }
     public void foodItemOnAction(ActionEvent actionEvent) throws IOException {
-//        AnchorPane btnItem = FXMLLoader.load(this.getClass().getResource("/View/AddFoodItem_Form.fxml"));
-//
-//        centerNode.getChildren().clear();
-//        centerNode.getChildren().add(btnItem);
+        AnchorPane btnItem = FXMLLoader.load(this.getClass().getResource("/lk.ijse.gdse/AddFoodItem_Form.fxml"));
+
+        centerNode.getChildren().clear();
+        centerNode.getChildren().add(btnItem);
     }
 
     public void userOnAction(ActionEvent actionEvent) throws IOException {
@@ -82,10 +82,10 @@ public AnchorPane rootNode;
     }
 
     public void vehicleOnAction(ActionEvent actionEvent) throws IOException {
-//        AnchorPane vehicleForm = FXMLLoader.load(this.getClass().getResource("/View/Vehicle_Form.fxml"));
-//
-//        centerNode.getChildren().clear();
-//        centerNode.getChildren().add(vehicleForm);
+        AnchorPane vehicleForm = FXMLLoader.load(this.getClass().getResource("/lk.ijse.gdse/Vehicle_Form.fxml"));
+
+        centerNode.getChildren().clear();
+        centerNode.getChildren().add(vehicleForm);
     }
 
 //    public void deliveryOnAction(ActionEvent actionEvent) throws IOException {
@@ -108,16 +108,16 @@ public AnchorPane rootNode;
     }
 
     public void ingredientOnAction(ActionEvent actionEvent) throws IOException {
-//        AnchorPane vehicleForm = FXMLLoader.load(this.getClass().getResource("/View/Ingredient_Form.fxml"));
-//
-//        centerNode.getChildren().clear();
-//        centerNode.getChildren().add(vehicleForm);
+        AnchorPane vehicleForm = FXMLLoader.load(this.getClass().getResource("/lk.ijse.gdse/Ingredient_Form.fxml"));
+
+        centerNode.getChildren().clear();
+        centerNode.getChildren().add(vehicleForm);
     }
 
     public void supplierOnAction(ActionEvent actionEvent) throws IOException {
-//        AnchorPane vehicleForm = FXMLLoader.load(this.getClass().getResource("/View/Supplier_Form.fxml"));
-//
-//        centerNode.getChildren().clear();
-//        centerNode.getChildren().add(vehicleForm);
+        AnchorPane vehicleForm = FXMLLoader.load(this.getClass().getResource("/lk.ijse.gdse/Supplier_Form.fxml"));
+
+        centerNode.getChildren().clear();
+        centerNode.getChildren().add(vehicleForm);
     }
 }

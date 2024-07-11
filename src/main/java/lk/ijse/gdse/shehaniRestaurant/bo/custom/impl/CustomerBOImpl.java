@@ -6,7 +6,6 @@ import lk.ijse.gdse.shehaniRestaurant.dao.custom.CustomerDAO;
 import lk.ijse.gdse.shehaniRestaurant.dto.CustomerDTO;
 import lk.ijse.gdse.shehaniRestaurant.entity.Customer;
 
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class CustomerBOImpl implements CustomerBO {
     @Override
     public List<CustomerDTO> getAllActiveCustomers() throws SQLException, ClassNotFoundException {
 
-        List<Customer> customers = customerDAO.getAll();
+        List<Customer> customers = customerDAO.getActiveAll();
         List<CustomerDTO> cusList = new ArrayList<>();
 
         for (Customer c : customers){

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
-    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public List<Customer> getActiveAll() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = SQLUtil.execute("SELECT * FROM Customer");
         List<Customer> customers = new ArrayList<>();
 
@@ -29,6 +29,7 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
 
         return customers;
+
     }
 
     @Override
@@ -44,7 +45,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public Boolean delete(String id) throws SQLException, ClassNotFoundException {
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("UPDATE Customer SET Active = 'No' WHERE CustomerId = ?",id);
     }
 
@@ -66,7 +67,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public Boolean update(Customer customer) throws SQLException, ClassNotFoundException {
+    public boolean update(Customer customer) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("UPDATE Customer SET Name = ?, Address = ?, Contact = ?, UserId = ?, NIC = ?, Active = ? WHERE CustomerId = ?",
                 customer.getName(),
                 customer.getAddress(),
@@ -78,7 +79,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public Boolean save(Customer customer) throws SQLException, ClassNotFoundException {
+    public boolean save(Customer customer) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("INSERT INTO Customer VALUES (?, ?, ?, ?, ? , ?, ?)",
                 customer.getId(),
                 customer.getName(),
@@ -87,5 +88,26 @@ public class CustomerDAOImpl implements CustomerDAO {
                 customer.getUsername(),
                 customer.getNic(),
                 customer.getActive());
+    }
+
+    @Override
+    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = SQLUtil.execute("SELECT * FROM Customer WHERE Active = 'Yes'");
+        List<Customer> customers = new ArrayList<>();
+
+        while (resultSet.next()){
+            String id = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String address = resultSet.getString(3);
+            String tel = resultSet.getString(4);
+            String userId = resultSet.getString(5);
+            String nic = resultSet.getString(6);
+            String active = resultSet.getString(7);
+
+            Customer customer = new Customer(id,name,address,tel,userId,nic,active);
+            customers.add(customer);
+        }
+
+        return customers;
     }
 }

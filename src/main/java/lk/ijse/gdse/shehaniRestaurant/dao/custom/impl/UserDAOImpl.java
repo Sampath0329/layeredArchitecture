@@ -3,13 +3,12 @@ package lk.ijse.gdse.shehaniRestaurant.dao.custom.impl;
 
 import lk.ijse.gdse.shehaniRestaurant.dao.SQLUtil;
 import lk.ijse.gdse.shehaniRestaurant.dao.custom.UserDAO;
-import lk.ijse.gdse.shehaniRestaurant.db.DbConnection;
 import lk.ijse.gdse.shehaniRestaurant.entity.User;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
     @Override
@@ -27,13 +26,13 @@ public class UserDAOImpl implements UserDAO {
         return false;
     }
     @Override
-    public Boolean save(User user) throws SQLException, ClassNotFoundException {
+    public boolean save(User user) throws SQLException, ClassNotFoundException {
 
         return SQLUtil.execute("INSERT INTO User VALUE (?, ?, ?, ?, ?)",user.getId(),user.getName(),user.getPw(),user.getNic(),user.getActive());
 
     }
     @Override
-    public ArrayList<User> getAll()throws SQLException, ClassNotFoundException {
+    public List<User> getAll()throws SQLException, ClassNotFoundException {
 
         ResultSet resultSet = SQLUtil.execute("SELECT * FROM User WHERE Active = 'Active'");
 
@@ -52,12 +51,14 @@ public class UserDAOImpl implements UserDAO {
         }
         return userList;
     }
+
+
     @Override
-    public Boolean delete(String id) throws SQLException, ClassNotFoundException {
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
         return SQLUtil.execute("UPDATE User SET Active = ? WHERE UserId = ?","Deactivate",id);
     }
 
-    public Boolean update(User user) throws SQLException, ClassNotFoundException {
+    public boolean update(User user) throws SQLException, ClassNotFoundException {
 
         return SQLUtil.execute("UPDATE User SET Name = ?, Password = ?, NIC = ? , Active = ? WHERE UserId = ?",
                 user.getName(),
@@ -68,7 +69,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User SearchById(String id) throws SQLException, ClassNotFoundException {
+    public User searchById(String id) throws SQLException, ClassNotFoundException {
 
         ResultSet resultSet = SQLUtil.execute("SELECT * FROM User WHERE UserId = ?",id);
 

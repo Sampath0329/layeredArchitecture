@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="centerNode" prefHeight="998.0" prefWidth="1590.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.shehaniRestaurant.controller.IngredientFormController">
+   <children>
+      <Label layoutX="115.0" layoutY="44.0" text=" Ingredient Manage" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="51.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbIngredient" layoutX="601.0" layoutY="181.0" prefHeight="706.0" prefWidth="925.0" style="-fx-background-radius: 10;">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="90.0" text="IngredientId" />
+            <TableColumn fx:id="colName" prefWidth="241.0" text="Name" />
+            <TableColumn fx:id="colEXPDate" prefWidth="107.0" text="EXP Date" />
+            <TableColumn fx:id="colQty" prefWidth="73.0" text="Qty" />
+            <TableColumn fx:id="colUnit" prefWidth="200.0" text="Unit" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="121.0" text="Unit Price" />
+            <TableColumn fx:id="colSupplierId" prefWidth="92.0" text="SupllierId" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtName" layoutX="112.0" layoutY="475.0" prefHeight="48.0" prefWidth="433.0" />
+      <JFXButton fx:id="btnClear" layoutX="666.0" layoutY="926.0" onAction="#clearOnAction" prefHeight="38.0" prefWidth="104.0" styleClass="btn-Clear" text="Clear" />
+      <JFXButton fx:id="btnDelete" layoutX="858.0" layoutY="926.0" onAction="#deleteOnAction" prefHeight="38.0" prefWidth="134.0" styleClass="btn-Delete" text="Delete" />
+      <JFXButton fx:id="btnUpdate" layoutX="1084.0" layoutY="926.0" onAction="#updateOnAction" prefHeight="38.0" prefWidth="141.0" styleClass="btn-Update" text="Update" />
+      <JFXButton fx:id="btnSave" layoutX="1333.0" layoutY="926.0" onAction="#saveOnAction" prefHeight="38.0" prefWidth="104.0" styleClass="btn-Save" text="Save" />
+      <Label layoutX="113.0" layoutY="376.0" text="Ingredient Id:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="112.0" layoutY="562.0" text="Expire Date:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="112.0" layoutY="447.0" text="Ingredient Name*">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtQty" layoutX="112.0" layoutY="644.0" prefHeight="48.0" prefWidth="433.0" />
+      <Label layoutX="112.0" layoutY="614.0" text="Quantity*">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUnit" layoutX="112.0" layoutY="752.0" prefHeight="48.0" prefWidth="433.0" promptText="Kg/L/Bottle" />
+      <Label layoutX="112.0" layoutY="722.0" text="Unit*">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="115.0" layoutY="220.0" text="Supplier Id:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbSupplierId" focusColor="#0909cd" layoutX="252.0" layoutY="211.0" onAction="#cmbSupplierOnAction" prefHeight="39.0" prefWidth="203.0" />
+      <Label layoutX="115.0" layoutY="304.0" text="Supplier Name:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUnitPrice" layoutX="109.0" layoutY="861.0" prefHeight="48.0" prefWidth="433.0" />
+      <Label layoutX="109.0" layoutY="831.0" text="Unit Price*">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSupplierName" layoutX="259.0" layoutY="296.0" prefHeight="38.0" prefWidth="190.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label fx:id="lblIngredientId" layoutX="252.0" layoutY="368.0" prefHeight="38.0" prefWidth="190.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <DatePicker fx:id="datePickerEXP" layoutX="244.0" layoutY="554.0" prefHeight="38.0" prefWidth="203.0" />
+      <Label layoutX="945.0" layoutY="50.0" prefHeight="48.0" prefWidth="350.0" styleClass="searchTextField" />
+      <ImageView fitHeight="48.0" fitWidth="45.0" layoutX="1249.0" layoutY="50.0" onMouseClicked="#searchOnMouseClick">
+         <image>
+            <Image url="@../lk.ijse.gdse/assests/Search.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtSearchId" layoutX="945.0" layoutY="50.0" onAction="#txtSearchOnAction" prefHeight="48.0" prefWidth="304.0" />
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="666.0" layoutY="928.0">
+         <image>
+            <Image url="@../lk.ijse.gdse/assests/icons8-clear-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="858.0" layoutY="928.0">
+         <image>
+            <Image url="@../lk.ijse.gdse/assests/icons8-delete-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1333.0" layoutY="928.0">
+         <image>
+            <Image url="@../lk.ijse.gdse/assests/icons8-save-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1092.0" layoutY="928.0">
+         <image>
+            <Image url="@../lk.ijse.gdse/assests/icons8-update-96.png" />
+         </image>
+      </ImageView>
+   </children>
+   <stylesheets>
+      <URL value="@assests/styles/login_form.css" />
+      <URL value="@assests/styles/CenterDashBord.css" />
+   </stylesheets>
+   <styleClass>
+      <String fx:value="pane" />
+      <String fx:value="CenterPanel" />
+   </styleClass>
+</AnchorPane>

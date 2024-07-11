@@ -1,7 +1,6 @@
 package lk.ijse.gdse.shehaniRestaurant.bo;
 
-import lk.ijse.gdse.shehaniRestaurant.bo.custom.impl.CustomerBOImpl;
-import lk.ijse.gdse.shehaniRestaurant.bo.custom.impl.UserBOImpl;
+import lk.ijse.gdse.shehaniRestaurant.bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -14,7 +13,7 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-        USER,CUSTOMER
+        USER,CUSTOMER,VEHICLE,INGREDIENT,SUPPLIER,FOOD,BEER
     }
 
     public SuperBO GetBO(BOTypes boTypes){
@@ -23,6 +22,16 @@ public class BOFactory {
                 return new UserBOImpl();
             case CUSTOMER:
                 return new CustomerBOImpl();
+            case VEHICLE:
+                return new VehicleBOImpl();
+            case INGREDIENT:
+                return new IngredientBOImpl();
+            case SUPPLIER:
+                return new SupplierBOImpl();
+            case FOOD:
+                return new FoodBOImpl();
+            case BEER:
+                return new BeerBOImpl();
             default:
                 return null;
 

@@ -32,12 +32,12 @@
             <TableColumn fx:id="colAvailability" prefWidth="167.0" text="Availability" />
          </columns>
       </TableView>
-      <TextField fx:id="txtPlateNumber" layoutX="283.0" layoutY="243.0" onAction="#platenumberOnAction" prefHeight="48.0" prefWidth="433.0" />
+      <TextField fx:id="txtPlateNumber" layoutX="283.0" layoutY="243.0" onAction="#plateNumberOnAction" prefHeight="48.0" prefWidth="433.0" />
       <TextField fx:id="txtType" layoutX="283.0" layoutY="348.0" onAction="#typeOnAction" prefHeight="48.0" prefWidth="433.0" />
-      <JFXButton fx:id="btnClear" layoutX="901.0" layoutY="469.0" onAction="#ClearOnAction" prefHeight="38.0" prefWidth="104.0" styleClass="btn-Clear" text="Clear" />
-      <JFXButton fx:id="btnDelete" layoutX="1044.0" layoutY="469.0" onAction="#DeleteOnAction" prefHeight="38.0" prefWidth="134.0" styleClass="btn-Delete" text="Delete" />
-      <JFXButton fx:id="btnUpdate" layoutX="1220.0" layoutY="469.0" onAction="#UpdateOnAction" prefHeight="38.0" prefWidth="141.0" styleClass="btn-Update" text="Update" />
-      <JFXButton fx:id="btnSave" layoutX="1393.0" layoutY="469.0" onAction="#SaveOnAction" prefHeight="38.0" prefWidth="104.0" styleClass="btn-Save" text="Save" />
+      <JFXButton fx:id="btnClear" layoutX="901.0" layoutY="469.0" onAction="#clearOnAction" prefHeight="38.0" prefWidth="104.0" styleClass="btn-Clear" text="Clear" />
+      <JFXButton fx:id="btnDelete" layoutX="1044.0" layoutY="469.0" onAction="#deleteOnAction" prefHeight="38.0" prefWidth="134.0" styleClass="btn-Delete" text="Delete" />
+      <JFXButton fx:id="btnUpdate" layoutX="1220.0" layoutY="469.0" onAction="#updateOnAction" prefHeight="38.0" prefWidth="141.0" styleClass="btn-Update" text="Update" />
+      <JFXButton fx:id="btnSave" layoutX="1393.0" layoutY="469.0" onAction="#saveOnAction" prefHeight="38.0" prefWidth="104.0" styleClass="btn-Save" text="Save" />
       <Label layoutX="283.0" layoutY="318.0" text="Vehicle Type*">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -58,7 +58,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cBoxColour" layoutX="1093.0" layoutY="357.0" onAction="#ColourSetOnAction" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: White;" />
+      <JFXComboBox fx:id="cBoxColour" layoutX="1093.0" layoutY="357.0" onAction="#colourSetOnAction" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: White;" />
       <CheckBox fx:id="chBoxAvailability" layoutX="283.0" layoutY="450.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="198.0" text="Availability">
          <font>
             <Font name="System Bold Italic" size="20.0" />
@@ -69,7 +69,7 @@
       <Group layoutX="1074.0" layoutY="50.0" styleClass="searchTextField">
          <children>
             <Label prefHeight="48.0" prefWidth="350.0" styleClass="searchTextField" />
-            <TextField fx:id="txtSearchId" onAction="#TxtSearchIdOnAction" prefHeight="48.0" prefWidth="304.0" styleClass="searchTextField" />
+            <TextField fx:id="txtSearchId" onAction="#txtSearchIdOnAction" prefHeight="48.0" prefWidth="304.0" styleClass="searchTextField" />
             <ImageView fitHeight="48.0" fitWidth="45.0" layoutX="305.0" onMouseClicked="#searchOnMouseClick">
                <image>
                   <Image url="@../lk.ijse.gdse/assests/Search.png" />
