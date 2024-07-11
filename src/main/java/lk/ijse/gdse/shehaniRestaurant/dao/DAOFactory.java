@@ -13,7 +13,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes{
-        USER,CUSTOMER,VEHICLE,SUPPLIER,INGREDIENT,FOOD,BEER,INGREDIENTDETAIL,PARTTIMEEMPLOYEE
+        USER,CUSTOMER,VEHICLE,SUPPLIER,INGREDIENT,FOOD,BEER,INGREDIENTDETAIL,PARTTIMEEMPLOYEE,FULLTIMEREMPLOYEE
     }
     public SuperDAO getDAO(DAOTypes daoTypes){
         switch (daoTypes){
@@ -35,6 +35,8 @@ public class DAOFactory {
                 return  new IngredientDetailDAOImpl();
             case PARTTIMEEMPLOYEE:
                 return new PartTimerEmployeeDAOImpl();
+            case FULLTIMEREMPLOYEE:
+                return new FullTimeEmployeeDAOImpl();
             default:
                 return null;
         }
