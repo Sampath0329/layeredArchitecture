@@ -1,5 +1,6 @@
 package lk.ijse.gdse.shehaniRestaurant.dao.custom.impl;
 
+import lk.ijse.gdse.shehaniRestaurant.dao.SQLUtil;
 import lk.ijse.gdse.shehaniRestaurant.dao.custom.OrderDetailDAO;
 import lk.ijse.gdse.shehaniRestaurant.entity.OrderDetail;
 
@@ -24,7 +25,23 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
 
     @Override
     public boolean save(OrderDetail orderDetail) throws SQLException, ClassNotFoundException {
-        return false;
+        if (orderDetail.getFoodId().charAt(0) == 'F'){
+            return SQLUtil.execute("INSERT INTO OrderFoodItemDetail VALUES(?, ?, ?, ?, ?)",
+                    orderDetail.getOrderId(),
+                    orderDetail.getFoodId(),
+                    null,
+                    orderDetail.getQty(),
+                    orderDetail.getUnitPrice()
+            );
+        } else {
+            return SQLUtil.execute("INSERT INTO OrderFoodItemDetail VALUES(?, ?, ?, ?, ?)",
+                    orderDetail.getOrderId(),
+                    null,
+                    orderDetail.getFoodId(),
+                    orderDetail.getQty(),
+                    orderDetail.getUnitPrice()
+            );
+        }
     }
 
     @Override

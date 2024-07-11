@@ -9,4 +9,6 @@ public interface BeerDAO extends CrudDAO<Beer> {
     String getNewId() throws SQLException, ClassNotFoundException;
 
     boolean isAvailable(String foodId, int qty) throws SQLException, ClassNotFoundException;
+
+    boolean beerQtyUpdate(String foodId, int qty) throws SQLException, ClassNotFoundException;
 }

@@ -1,16 +1,14 @@
 package lk.ijse.gdse.shehaniRestaurant.bo.custom.impl;
 
+import javafx.scene.control.Alert;
 import lk.ijse.gdse.shehaniRestaurant.bo.custom.PurchaseOrderBO;
 import lk.ijse.gdse.shehaniRestaurant.dao.DAOFactory;
-import lk.ijse.gdse.shehaniRestaurant.dao.custom.BeerDAO;
-import lk.ijse.gdse.shehaniRestaurant.dao.custom.CustomerDAO;
-import lk.ijse.gdse.shehaniRestaurant.dao.custom.FoodDAO;
-import lk.ijse.gdse.shehaniRestaurant.dao.custom.OrderDAO;
+import lk.ijse.gdse.shehaniRestaurant.dao.custom.*;
+import lk.ijse.gdse.shehaniRestaurant.db.DbConnection;
 import lk.ijse.gdse.shehaniRestaurant.dto.*;
-import lk.ijse.gdse.shehaniRestaurant.entity.Beer;
-import lk.ijse.gdse.shehaniRestaurant.entity.Customer;
-import lk.ijse.gdse.shehaniRestaurant.entity.FoodItem;
+import lk.ijse.gdse.shehaniRestaurant.entity.*;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +18,9 @@ public class PurchaseOrderBOImpl implements PurchaseOrderBO {
     OrderDAO orderDAO = (OrderDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ORDER);
     FoodDAO foodDAO = (FoodDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.FOOD);
     BeerDAO beerDAO = (BeerDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.BEER);
+
+    OrderDetailDAO orderDetailDAO = (OrderDetailDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ORDERDETAIL);
+
     @Override
     public List<String> getCustomerNIC() throws SQLException, ClassNotFoundException {
 
@@ -126,8 +127,55 @@ public class PurchaseOrderBOImpl implements PurchaseOrderBO {
     }
 
     @Override
-    public Boolean placeOrder(OrderDTO order, List<OrderDetailDTO> orderDetailList) {
-        return null;
+    public Boolean placeOrder(OrderDTO order, List<OrderDetailDTO> orderDetailList) throws SQLException {
+        Connection connection = DbConnection.getConnection();
+        connection.setAutoCommit(false);
+
+        try {
+            boolean isSaved = orderDAO.save(new Order(
+                    order.getOrderId(),
+                    order.getCustomerId(),
+                    order.getOrderDate(),
+                    order.getTimePlace(),
+                    order.getPaymentAmount()
+            ));
+            if (isSaved){
+                for (OrderDetailDTO od : orderDetailList){
+                    boolean isOrderDetailSaved = orderDetailDAO.save(new OrderDetail(
+                            od.getOrderId(),
+                            od.getFoodId(),
+                            od.getQty(),
+                            od.getUnitPrice()
+                    ));
+
+                    if (isOrderDetailSaved){
+                        if (od.getFoodId().charAt(0) == 'F'){
+                            boolean isQtyUpdated = foodDAO.foodItemQtyUpdate(od.getFoodId(),od.getQty());
+                            if (isQtyUpdated){
+                                connection.commit();
+                                return true;
+                            }
+                        }else {
+                            boolean isQtyUpdated = beerDAO.beerQtyUpdate(od.getFoodId(),od.getQty());
+                            if (isQtyUpdated){
+                                connection.commit();
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            connection.rollback();
+            return false;
+
+        } catch (SQLException | ClassNotFoundException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            connection.rollback();
+            return false;
+
+        } finally {
+            connection.setAutoCommit(true);
+        }
     }
 
 }

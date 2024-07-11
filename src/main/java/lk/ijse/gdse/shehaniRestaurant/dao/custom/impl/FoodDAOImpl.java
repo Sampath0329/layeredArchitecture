@@ -98,4 +98,10 @@ public class FoodDAOImpl implements FoodDAO {
         }
         return false;
     }
+
+    @Override
+    public boolean foodItemQtyUpdate(String foodId, int qty) throws SQLException, ClassNotFoundException {
+        return SQLUtil.execute("UPDATE NonAlcoholFoodItem SET AvailabilityQty = AvailabilityQty - ? WHERE FoodId = ?",
+                qty,foodId);
+    }
 }

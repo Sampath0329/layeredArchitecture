@@ -29,5 +29,5 @@ public interface PurchaseOrderBO extends SuperBO {
 
     boolean isAvailableBeer(String foodId, int qty) throws SQLException, ClassNotFoundException;
 
-    Boolean placeOrder(OrderDTO order, List<OrderDetailDTO> orderDetailList);
+    Boolean placeOrder(OrderDTO order, List<OrderDetailDTO> orderDetailList) throws SQLException;
 }

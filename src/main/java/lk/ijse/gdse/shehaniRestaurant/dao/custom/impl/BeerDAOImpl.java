@@ -94,4 +94,10 @@ public class BeerDAOImpl implements BeerDAO {
         }
         return false;
     }
+
+    @Override
+    public boolean beerQtyUpdate(String foodId, int qty) throws SQLException, ClassNotFoundException {
+        return SQLUtil.execute("UPDATE AlcoholFoodItem SET AvailableQty = AvailableQty - ? WHERE BearId = ?",
+                qty,foodId);
+    }
 }
