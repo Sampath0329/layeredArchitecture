@@ -20,4 +20,6 @@ public interface CustomerDAO extends CrudDAO<Customer> {
     boolean save(Customer customer) throws SQLException, ClassNotFoundException;
 
     List<Customer> getAll() throws SQLException, ClassNotFoundException;
+
+    Customer searchByTel(String tel) throws SQLException, ClassNotFoundException;
 }

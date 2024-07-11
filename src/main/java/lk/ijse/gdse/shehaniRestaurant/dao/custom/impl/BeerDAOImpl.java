@@ -81,4 +81,17 @@ public class BeerDAOImpl implements BeerDAO {
         }
         return "B1";
     }
+
+    @Override
+    public boolean isAvailable(String foodId, int qty) throws SQLException, ClassNotFoundException {
+
+        ResultSet resultSet = SQLUtil.execute("SELECT AvailableQty FROM AlcoholFoodItem WHERE BearId = ?",foodId);
+        if (resultSet.next()){
+            int dbQty = Integer.parseInt(resultSet.getString(1));
+            if (dbQty >= qty){
+                return true;
+            }
+        }
+        return false;
+    }
 }

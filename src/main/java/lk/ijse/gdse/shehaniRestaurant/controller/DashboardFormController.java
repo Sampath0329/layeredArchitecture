@@ -75,10 +75,10 @@ public AnchorPane rootNode;
     }
 
     public void orderOnAction(ActionEvent actionEvent) throws IOException {
-//        AnchorPane customerPane = FXMLLoader.load(this.getClass().getResource("/View/placeorder_form.fxml"));
-//
-//        centerNode.getChildren().clear();
-//        centerNode.getChildren().add(customerPane);
+        AnchorPane customerPane = FXMLLoader.load(this.getClass().getResource("/lk.ijse.gdse/Placeorder_form.fxml"));
+
+        centerNode.getChildren().clear();
+        centerNode.getChildren().add(customerPane);
     }
 
     public void vehicleOnAction(ActionEvent actionEvent) throws IOException {

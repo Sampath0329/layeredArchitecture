@@ -4,6 +4,7 @@ import lk.ijse.gdse.shehaniRestaurant.dao.SQLUtil;
 import lk.ijse.gdse.shehaniRestaurant.dao.custom.FoodDAO;
 import lk.ijse.gdse.shehaniRestaurant.entity.FoodItem;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -83,5 +84,18 @@ public class FoodDAOImpl implements FoodDAO {
             return "F" + ++idNum;
         }
         return "F1";
+    }
+
+    @Override
+    public boolean isAvailable(String foodId, int qty) throws SQLException, ClassNotFoundException {
+
+        ResultSet resultSet = SQLUtil.execute("SELECT AvailabilityQty FROM NonAlcoholFoodItem WHERE FoodId = ?",foodId);
+        if (resultSet.next()){
+            int dbQty = Integer.parseInt(resultSet.getString(1));
+            if (dbQty >= qty){
+                return true;
+            }
+        }
+        return false;
     }
 }

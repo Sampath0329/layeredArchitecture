@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Order_Bill" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9016105a-2160-4241-be48-f1556b1fe722">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (4)"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="203"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="790"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="725"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="263"/>
+	<parameter name="OrderID" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT `ShehaniRestaurant`.`OrderFoodItemDetail`.`FoodId`,
+	`ShehaniRestaurant`.`OrderFoodItemDetail`.`BearId`,
+	`ShehaniRestaurant`.`OrderFoodItemDetail`.`Quantity`,
+	`ShehaniRestaurant`.`OrderFoodItemDetail`.`UnitPrice`,
+	`ShehaniRestaurant`.`Orders`.`OrderId`,
+	`ShehaniRestaurant`.`Orders`.`CustomerId`,
+	`ShehaniRestaurant`.`Orders`.`OrderDate`,
+	`ShehaniRestaurant`.`Orders`.`TimePlace`,
+	`ShehaniRestaurant`.`Orders`.`PaymentAmount`,
+	`ShehaniRestaurant`.`Orders`.`DeliveryId`,
+	`ShehaniRestaurant`.`OrderFoodItemDetail`.`OrderId`,
+	`ShehaniRestaurant`.`NonAlcoholFoodItem`.`FoodId` AS ItemId,
+	`ShehaniRestaurant`.`NonAlcoholFoodItem`.`Name` AS ItemName,
+	`ShehaniRestaurant`.`NonAlcoholFoodItem`.`Description` ,
+	`ShehaniRestaurant`.`NonAlcoholFoodItem`.`Price`,
+	`ShehaniRestaurant`.`NonAlcoholFoodItem`.`AvailabilityQty`,
+	`ShehaniRestaurant`.`NonAlcoholFoodItem`.`Active`
+FROM `ShehaniRestaurant`.`Orders`
+	Inner Join `ShehaniRestaurant`.`OrderFoodItemDetail` ON 
+	 `ShehaniRestaurant`.`Orders`.`OrderId` = `ShehaniRestaurant`.`OrderFoodItemDetail`.`OrderId` 
+	inner Join `ShehaniRestaurant`.`NonAlcoholFoodItem` ON 
+	 `ShehaniRestaurant`.`OrderFoodItemDetail`.`FoodId` = `ShehaniRestaurant`.`NonAlcoholFoodItem`.`FoodId` 
+WHERE 
+	 `ShehaniRestaurant`.`Orders`.`OrderId` = $P{OrderID} 
+UNION ALL 
+SELECT `ShehaniRestaurant`.`OrderFoodItemDetail`.`FoodId`,
+	`ShehaniRestaurant`.`OrderFoodItemDetail`.`BearId`,
+	`ShehaniRestaurant`.`OrderFoodItemDetail`.`Quantity`,
+	`ShehaniRestaurant`.`OrderFoodItemDetail`.`UnitPrice`,
+	`ShehaniRestaurant`.`Orders`.`OrderId`,
+	`ShehaniRestaurant`.`Orders`.`CustomerId`,
+	`ShehaniRestaurant`.`Orders`.`OrderDate`,
+	`ShehaniRestaurant`.`Orders`.`TimePlace`,
+	`ShehaniRestaurant`.`Orders`.`PaymentAmount`,
+	`ShehaniRestaurant`.`Orders`.`DeliveryId`,
+	`ShehaniRestaurant`.`OrderFoodItemDetail`.`OrderId`,
+	`ShehaniRestaurant`.`AlcoholFoodItem`.`BearId` AS ItemId,
+	`ShehaniRestaurant`.`AlcoholFoodItem`.`Name` AS ItemName,
+	`ShehaniRestaurant`.`AlcoholFoodItem`.`Price`,
+	`ShehaniRestaurant`.`AlcoholFoodItem`.`Availability`,
+	`ShehaniRestaurant`.`AlcoholFoodItem`.`AlcoholContent` ,
+	`ShehaniRestaurant`.`AlcoholFoodItem`.`AvailableQty`
+FROM `ShehaniRestaurant`.`Orders`
+	Inner Join `ShehaniRestaurant`.`OrderFoodItemDetail` ON 
+	 `ShehaniRestaurant`.`Orders`.`OrderId` = `ShehaniRestaurant`.`OrderFoodItemDetail`.`OrderId` 
+	inner join `ShehaniRestaurant`.`AlcoholFoodItem` ON 
+	 `ShehaniRestaurant`.`OrderFoodItemDetail`.`BearId` = `ShehaniRestaurant`.`AlcoholFoodItem`.`BearId` 
+WHERE 
+	 `ShehaniRestaurant`.`Orders`.`OrderId` = $P{OrderID}]]>
+	</queryString>
+	<field name="FoodId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FoodId"/>
+		<property name="com.jaspersoft.studio.field.label" value="FoodId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderFoodItemDetail"/>
+	</field>
+	<field name="BearId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="BearId"/>
+		<property name="com.jaspersoft.studio.field.label" value="BearId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderFoodItemDetail"/>
+	</field>
+	<field name="Quantity" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Quantity"/>
+		<property name="com.jaspersoft.studio.field.label" value="Quantity"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderFoodItemDetail"/>
+	</field>
+	<field name="UnitPrice" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="UnitPrice"/>
+		<property name="com.jaspersoft.studio.field.label" value="UnitPrice"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="OrderFoodItemDetail"/>
+	</field>
+	<field name="OrderId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="OrderId"/>
+		<property name="com.jaspersoft.studio.field.label" value="OrderId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
+	</field>
+	<field name="CustomerId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CustomerId"/>
+		<property name="com.jaspersoft.studio.field.label" value="CustomerId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
+	</field>
+	<field name="OrderDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="OrderDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="OrderDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
+	</field>
+	<field name="TimePlace" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.name" value="TimePlace"/>
+		<property name="com.jaspersoft.studio.field.label" value="TimePlace"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
+	</field>
+	<field name="PaymentAmount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PaymentAmount"/>
+		<property name="com.jaspersoft.studio.field.label" value="PaymentAmount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
+	</field>
+	<field name="DeliveryId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DeliveryId"/>
+		<property name="com.jaspersoft.studio.field.label" value="DeliveryId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Orders"/>
+	</field>
+	<field name="COLUMN_11" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="OrderId"/>
+		<property name="com.jaspersoft.studio.field.label" value="OrderId"/>
+	</field>
+	<field name="ItemId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ItemId"/>
+		<property name="com.jaspersoft.studio.field.label" value="ItemId"/>
+	</field>
+	<field name="ItemName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ItemName"/>
+		<property name="com.jaspersoft.studio.field.label" value="ItemName"/>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Description"/>
+		<property name="com.jaspersoft.studio.field.label" value="Description"/>
+	</field>
+	<field name="Price" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Price"/>
+		<property name="com.jaspersoft.studio.field.label" value="Price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="NonAlcoholFoodItem"/>
+	</field>
+	<field name="AvailabilityQty" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AvailabilityQty"/>
+		<property name="com.jaspersoft.studio.field.label" value="AvailabilityQty"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="NonAlcoholFoodItem"/>
+	</field>
+	<field name="Active" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Active"/>
+		<property name="com.jaspersoft.studio.field.label" value="Active"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="NonAlcoholFoodItem"/>
+	</field>
+	<group name="OrderId">
+		<groupExpression><![CDATA[$F{OrderId}]]></groupExpression>
+	</group>
+	<group name="CustomerId">
+		<groupExpression><![CDATA[$F{CustomerId}]]></groupExpression>
+	</group>
+	<group name="OrderDate">
+		<groupExpression><![CDATA[$F{OrderDate}]]></groupExpression>
+	</group>
+	<group name="TimePlace">
+		<groupExpression><![CDATA[$F{TimePlace}]]></groupExpression>
+	</group>
+	<group name="PaymentAmount">
+		<groupExpression><![CDATA[$F{PaymentAmount}]]></groupExpression>
+	</group>
+	<group name="DeliveryId">
+		<groupExpression><![CDATA[$F{DeliveryId}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="230" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="-10" width="200" height="203" uuid="b4ee4444-08b7-4762-ad0d-ec64dbb88a18"/>
+				<imageExpression><![CDATA["/home/nadish/Desktop/FinalProject/ShehaniRestaurant/src/main/resources/Assest/Icon/RestaurandLogo/shehanirestaurant.jpeg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="221" y="7" width="326" height="32" uuid="37bcffc0-68bf-46d8-8103-e87b898f34fd"/>
+				<textElement>
+					<font fontName="C059" size="26"/>
+				</textElement>
+				<text><![CDATA[Shehani Resturant ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="50" width="261" height="67" uuid="dc80ff49-b7fe-4775-8e16-a9c99ea77281"/>
+				<textElement>
+					<font fontName="C059" size="18"/>
+				</textElement>
+				<text><![CDATA[Shehani Hotel & Bakery, Mahedanda,                        Karandeniya]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="118" width="272" height="30" uuid="421f0c62-c3b9-47e5-a952-82d2142d5459"/>
+				<textElement>
+					<font fontName="Bitstream Charter" size="18"/>
+				</textElement>
+				<text><![CDATA[+94 77 957 02227
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="176" width="100" height="30" uuid="ef4e6ede-6b4e-4a78-bfb0-bb6f8d194ccf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="C059" size="18"/>
+				</textElement>
+				<text><![CDATA[Order Id]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="107" y="175" width="100" height="30" uuid="98f5e5a0-911d-43e7-a433-74e049949e67"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="C059" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OrderId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="163" width="100" height="30" uuid="c891f909-485e-435d-b67a-df3fe655d8cf"/>
+				<textFieldExpression><![CDATA[$F{OrderDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="186" width="100" height="30" uuid="015c55f5-3817-4877-a779-2292f1e0cbed"/>
+				<textFieldExpression><![CDATA[$F{TimePlace}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-20" y="157" width="595" height="1" uuid="78f3c2c6-237c-4500-bdff-52164af1cbef"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="52" y="4" width="78" height="30" uuid="c11a194c-7fd8-43fe-ac09-7b224042b0d0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="edac82a1-d2db-48fd-9d6e-870db7dc362c"/>
+				</reportElement>
+				<textElement>
+					<font fontName="AnjaliOldLipi" size="20"/>
+				</textElement>
+				<text><![CDATA[ItemId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="4" width="85" height="30" uuid="830925ba-dfc8-4c6c-9cc3-e6eb07ff9c4e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9a831ee6-6331-4b61-931b-4eb3e6bf4901"/>
+				</reportElement>
+				<textElement>
+					<font fontName="AnjaliOldLipi" size="20"/>
+				</textElement>
+				<text><![CDATA[ItemName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="4" width="100" height="30" uuid="c8c7169f-f52f-4836-835e-5df5835c3038">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f7a8aa3-25de-401c-89d7-a4e79f476cf7"/>
+				</reportElement>
+				<textElement>
+					<font fontName="AnjaliOldLipi" size="20"/>
+				</textElement>
+				<text><![CDATA[UnitPrice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="4" width="100" height="30" uuid="8210f113-0dc1-4471-adda-01aeedb1cd42">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="772a588f-811e-433a-b6c7-81e03593a7f8"/>
+				</reportElement>
+				<textElement>
+					<font fontName="AnjaliOldLipi" size="20"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="1" width="595" height="1" uuid="c0e5916b-7010-4524-a811-cd9c6e482c2a"/>
+			</line>
+			<line>
+				<reportElement x="-26" y="34" width="612" height="1" uuid="1e1c0b6d-d152-44d5-b598-2f1329dd56fa"/>
+			</line>
+			<line>
+				<reportElement x="130" y="2" width="1" height="31" uuid="b0e25eaf-1b07-4dc7-a82a-130aa66464dc"/>
+			</line>
+			<line>
+				<reportElement x="280" y="3" width="1" height="31" uuid="b44e204c-b4d1-4035-943f-f89fb8c4d0ae"/>
+			</line>
+			<line>
+				<reportElement x="422" y="3" width="1" height="31" uuid="5554c556-c207-4cb0-831f-0d453723868e"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="52" y="7" width="78" height="30" uuid="04a243d5-91a2-4740-a75f-f81c86c1c6e3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="edac82a1-d2db-48fd-9d6e-870db7dc362c"/>
+				</reportElement>
+				<textElement>
+					<font fontName="AnjaliOldLipi" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ItemId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="8" width="126" height="30" uuid="dfeeb4f5-43d7-4e38-819d-d06ea5b05b8f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9a831ee6-6331-4b61-931b-4eb3e6bf4901"/>
+				</reportElement>
+				<textElement>
+					<font fontName="AnjaliOldLipi" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ItemName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="8" width="100" height="30" uuid="8c6cf054-440f-43f0-8794-11c1b1a9a966">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f7a8aa3-25de-401c-89d7-a4e79f476cf7"/>
+				</reportElement>
+				<textElement>
+					<font fontName="AnjaliOldLipi" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UnitPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="313" y="6" width="100" height="30" uuid="a91b48a9-03ae-4576-abe9-80b20438d594">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="772a588f-811e-433a-b6c7-81e03593a7f8"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="AnjaliOldLipi" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Quantity}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-29" y="39" width="612" height="1" uuid="91d98f44-dd25-4174-8d34-f0c82b23ee03"/>
+			</line>
+			<line>
+				<reportElement x="130" y="0" width="1" height="36" uuid="a0ce7f3c-a503-432e-9a58-29b1ce8db816"/>
+			</line>
+			<line>
+				<reportElement x="280" y="2" width="1" height="36" uuid="2709b5b9-1c6d-4f82-9c84-876f26e3d4da"/>
+			</line>
+			<line>
+				<reportElement x="422" y="2" width="1" height="36" uuid="de53661e-db6c-4d9e-9079-4725ee129996"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="387" y="0" width="181" height="30" uuid="aafcbfe4-6a01-4f68-9197-cfd4a383b8c5"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PaymentAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="281" y="1" width="113" height="30" uuid="efea182b-eccb-4bdf-a7a5-bfbcb3e96444"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Total Rs:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

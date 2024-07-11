@@ -110,4 +110,20 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         return customers;
     }
+
+    @Override
+    public Customer searchByTel(String tel) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet =SQLUtil.execute("SELECT * FROM Customer WHERE Contact = ? AND Active = 'Yes'",tel);
+        if (resultSet.next()){
+            return new Customer(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7)
+            );        }
+        return null;
+    }
 }
